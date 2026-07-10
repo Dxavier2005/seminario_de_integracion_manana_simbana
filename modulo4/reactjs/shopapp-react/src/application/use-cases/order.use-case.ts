@@ -6,8 +6,9 @@ import type { AddItemDto } from '@/application/dtos/add-item.dto'
 
 export class OrderUseCase {
   private readonly orderRepository: OrderRepository
-    constructor (orderRepository: OrderRepository){
-        this.orderRepository= orderRepository
+
+  constructor(orderRepository: OrderRepository) {
+    this.orderRepository = orderRepository
   }
 
   getOrders(page = 1): Promise<PaginatedResult<Order>> {

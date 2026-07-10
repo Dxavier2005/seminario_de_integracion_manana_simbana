@@ -3,21 +3,24 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy, useEffect } from 'react'
 import { useAuthStore } from '@/presentation/store/auth.store'
 import ProtectedRoute from './ProtectedRoute'
-
+import AppShell from '@/presentation/components/AppShell'
 import PlaceholderPage from '../pages/PlaceholderPage'
-import AppShell from '../components/AppShell'
-import CatalogPage from '../pages/catalog/CatalogPage'
-import ProductDetailPage from '../pages/catalog/ProductDetailPage'
-import CartPage from '../pages/cart/CartPage'
-import CheckoutPage from '../pages/orders/CheckoutPage'
-import OrdersPage from '../pages/orders/OrdersPage'
-import OrderDetailPage from '../pages/orders/OrderDetailPage'
 
 // ─── Lazy imports ─────────────────────────────────────────────────────────────
 
 // Auth (sin shell) — reales desde este módulo
 const LoginPage = lazy(() => import('../pages/auth/LoginPage'))
 const RegisterPage = lazy(() => import('../pages/auth/RegisterPage'))
+const CatalogPage = lazy(() => import('../pages/catalog/CatalogPage'))
+const ProductDetailPage = lazy(() => import('../pages/catalog/ProductDetailPage'))
+const CartPage = lazy(() => import('../pages/cart/CartPage'))
+const CheckoutPage = lazy(() => import('../pages/orders/CheckoutPage'))
+const OrdersPage = lazy(() => import('../pages/orders/OrdersPage'))
+const OrderDetailPage = lazy(() => import('../pages/orders/OrderDetailPage'))
+const ProfilePage = lazy(() => import('../pages/profile/ProfilePage'))
+
+
+
 
 // El resto de páginas todavía no existen: se implementan en módulos posteriores
 // (Catálogo → 4/5, Carrito → 6, Órdenes → 7, Perfil → 8, Admin → 9-13) y cada uno
@@ -56,7 +59,7 @@ export default function AppRouter() {
           <Route element={<AppShell />}>
             {/* Públicas — placeholder hasta el módulo 4/5 */}
             <Route path="/" element={<CatalogPage />} />
-            <Route path="/catalog" element={<Route path="/catalog" element={<CatalogPage />} />} />
+            <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
 
             {/* Requieren autenticación — placeholder hasta los módulos 6, 7 y 8 */}
@@ -69,10 +72,18 @@ export default function AppRouter() {
               }
             />
             <Route
+              path="/orders/new"
+              element={
+                <ProtectedRoute>
+                  <CheckoutPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/orders"
               element={
                 <ProtectedRoute>
-                <OrdersPage />
+                  <OrdersPage />
                 </ProtectedRoute>
               }
             />
@@ -80,23 +91,15 @@ export default function AppRouter() {
               path="/orders/:id"
               element={
                 <ProtectedRoute>
-                <OrderDetailPage />
+                  <OrderDetailPage />
                 </ProtectedRoute>
               }
             />
             <Route
-                path="/orders/new"
-                element={
-                    <ProtectedRoute>
-                    <CheckoutPage />
-                    </ProtectedRoute>
-                }
-                />
-                        <Route
               path="/profile"
               element={
                 <ProtectedRoute>
-                  <PlaceholderPage title="Perfil — Módulo 8" />
+                  <ProfilePage />
                 </ProtectedRoute>
               }
             />
@@ -151,3 +154,5 @@ export default function AppRouter() {
     </BrowserRouter>
   )
 }
+
+

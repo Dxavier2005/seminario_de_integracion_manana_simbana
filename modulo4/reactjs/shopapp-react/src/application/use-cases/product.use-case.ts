@@ -6,9 +6,10 @@ import type { ProductFilters } from '@/domain/entities/product-filters.entity'
 
 export class ProductUseCase {
   private readonly productRepository: ProductRepository
-      constructor (productRepository: ProductRepository){
-        this.productRepository= productRepository
-      }
+
+  constructor(productRepository: ProductRepository) {
+    this.productRepository = productRepository
+  }
 
   getProducts(filters?: Partial<ProductFilters>, page = 1): Promise<PaginatedResult<Product>> {
     return this.productRepository.getProducts(filters, page)

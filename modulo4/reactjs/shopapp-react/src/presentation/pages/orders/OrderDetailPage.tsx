@@ -17,9 +17,8 @@ import {
 
 import { useOrderStore } from '@/presentation/store/order.store'
 import { formatPrice, formatDate } from '@/presentation/utils/formatters'
-
-import type { OrderStatus } from '@/domain/enums/order-status.enum'
 import { StatusBadge } from '@/presentation/components/StatusBadge'
+import type { OrderStatus } from '@/domain/enums/order-status.enum'
 
 // ── Línea de tiempo de estado ─────────────────────────────────────────────────
 
@@ -214,4 +213,4 @@ export default function OrderDetailPage() {
       </div>
     </div>
   )
-}
+}   
