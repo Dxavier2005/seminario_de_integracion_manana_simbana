@@ -60,5 +60,5 @@ export class AxiosOrderRepository implements OrderRepository {
   } catch (err) {
     throw parseApiError(err)
   }
-}
+  }
 }

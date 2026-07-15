@@ -9,5 +9,6 @@ export interface UserRepository {
     last_name?: string
     email?: string
   }): Promise<UserProfile>
-  getStats(): Promise<UserStats>
+   getStats(): Promise<UserStats>
+   
 }

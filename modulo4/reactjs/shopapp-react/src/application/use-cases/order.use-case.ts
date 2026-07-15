@@ -7,9 +7,8 @@ import type { OrderStats } from '@/domain/entities/order-stats.entity'
 
 export class OrderUseCase {
   private readonly orderRepository: OrderRepository
-
-  constructor(orderRepository: OrderRepository) {
-    this.orderRepository = orderRepository
+    constructor (orderRepository: OrderRepository){
+        this.orderRepository= orderRepository
   }
 
   getOrders(page = 1): Promise<PaginatedResult<Order>> {
@@ -32,6 +31,6 @@ export class OrderUseCase {
     return this.orderRepository.confirmOrder(orderId)
   }
   getStats(): Promise<OrderStats> {
-  return this.orderRepository.getStats()
-}
+    return this.orderRepository.getStats()
+  }
 }
