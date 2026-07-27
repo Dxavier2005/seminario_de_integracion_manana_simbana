@@ -1,0 +1,37 @@
+print("condicionales simples")
+edad = input("Incluye edad: ")
+if int(edad) >= 10:
+    print("Mayor edad")
+
+print("condicionales dos caminos")
+temperatura = input("Incluye temperatura: ")
+if int(temperatura) >= 38:
+    print("temperatura alta")
+else:
+    print("temperatura normal")
+
+print("condicionales múltiples")
+nota = input("Incluir nota: ")
+if int(nota) >= 90:
+    print("Excelente")
+elif int(nota) >= 70:
+    print("Aprobado")
+else:
+    print("Reprobado")
+
+print("condicionales if anidados")
+
+tiene_reserva = True
+dinero = 25
+plato = "pizza"
+
+if tiene_reserva:
+    if dinero >= 20:
+        if plato == "pizza":
+            print("Pizza confirmada para el evento ($20)")
+        else:
+            print("Plato disponible")
+    else:
+        print("Dinero insuficiente")
+else:
+    print("No tiene reserva")
