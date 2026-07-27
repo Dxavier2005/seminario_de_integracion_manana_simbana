@@ -1,4 +1,4 @@
-class Temperatura {
+class TemperaturaSala {
   valorCelsius: number;
   valorFahrenheit: number;
 
@@ -24,18 +24,14 @@ class Temperatura {
       `${this.valorCelsius}°C = ` +
       `${this.aFahrenheit()}°F = ` +
       `${this.aKelvin()}K`
-      
     );
   }
 }
 
+const salaCalefaccion = new TemperaturaSala(100, 0);
+const salaFria = new TemperaturaSala(0, 0);
+const convertirACelsius = new TemperaturaSala(0, 50);
 
-
-const hervor = new Temperatura(100,0);
-const congelacion = new Temperatura(0,0);
-const convertirACelsius = new Temperatura(0,50);
-
-
-console.log(hervor.describir());     // 100°C = 212°F = 373.15K
-console.log(congelacion.describir()); // 0°C = 32°F = 273.15K
-console.log (convertirACelsius.aCelsius()); // 10°C = 50°F = 283.15K
+console.log(salaCalefaccion.describir());
+console.log(salaFria.describir());
+console.log(convertirACelsius.aCelsius());

@@ -1,6 +1,3 @@
-
-// Tuplas
-
 // Concepto puro
 type Coordenada = [number, number];           // [x, y]
 type RGB = [number, number, number];          // [rojo, verde, azul]
@@ -21,6 +18,3 @@ console.log(`Color: rgb(${rojo},${verde},${azul})`); // Color: rgb(255,128,0)
 // Tuplas con nombre (TS 4.0+) — mejoran la legibilidad
 type Rango = [inicio: number, fin: number];
 const horario: Rango = [9, 18];              // de 9:00 a 18:00
-
-
-

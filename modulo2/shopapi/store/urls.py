@@ -25,4 +25,4 @@ urlpatterns = [
     path('auth/token/verify/',  TokenVerifyView.as_view()),
     path('auth/logout/',        LogoutView.as_view()),
     path('', include(router.urls)),
-]   
+]

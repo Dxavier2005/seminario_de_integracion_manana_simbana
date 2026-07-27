@@ -30,5 +30,6 @@ console.log(cuenta.obtenerSaldo());  // 1000
 cuenta.depositar(500);
 console.log(cuenta.obtenerSaldo());  // 1500
 
+
 // cuenta.saldo = 9999;  // Error: 'saldo' is private
 // cuenta.id = "otro";   // Error: 'id' is readonly

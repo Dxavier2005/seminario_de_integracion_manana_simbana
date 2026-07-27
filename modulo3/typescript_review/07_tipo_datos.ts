@@ -1,4 +1,4 @@
-//Niumericos
+//Numerico
 // Concepto puro
 const entero: number = 42;
 const decimal: number = 3.14;
@@ -17,7 +17,6 @@ console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
 console.log(Number.isFinite(1 / 0)); // false (Infinity no es finito)
 console.log(Number.isNaN(0 / 0));    // true
 
-//Strings
 
 // Concepto puro
 const simple: string = "Hola TypeScript";
@@ -28,7 +27,7 @@ const nombre: string = "Ana";
 const edad: number = 28;
 
 // Interpolación: embebe expresiones dentro de ${}
-const saludo: string = `Hola, ${nombre}. Tienes ${edad} años.`;
+export const saludo: string = `Hola, ${nombre}. Tienes ${edad} años.`;
 const mayoria: string = `Eres ${edad >= 18 ? "mayor" : "menor"} de edad.`;
 
 // Multilínea sin caracteres de escape
@@ -41,12 +40,10 @@ const mensaje: string = `
 // Métodos comunes (tipados, el editor autocompleta)
 console.log("  hola  ".trim());         // "hola"
 console.log("hola".toUpperCase());      // "HOLA"
+console.log("hola".toLowerCase());     
 console.log("2024-06-15".split("-"));   // ["2024", "06", "15"]
 console.log("error: fallo".includes("error")); // true
-console.log("archivo.ts".endsWith(".ts"));     // true
-
-
-//Booleanos
+console.log("archivo.ts".startsWith(".ts"));     // true
 
 // Concepto puro
 const activo: boolean = true;
@@ -62,9 +59,7 @@ if (!tieneStock) {
   console.log("Sin stock disponible");
 }
 
-
-//Null y Undefined
-
+//NULL AND INDEFINIDOS
 // Concepto puro
 let sinAsignar: undefined = undefined;
 let sinValor: null = null;
@@ -78,11 +73,9 @@ function buscarUsuario(id: number): string | null {
 const usuario = buscarUsuario(5);
 
 // Operador de coalescencia nula ?? (devuelve el lado derecho si el izquierdo es null/undefined)
-const nombreU = usuario ?? "Invitado";
-console.log(nombreU); // "Invitado"
+const nombreUsuario = usuario ?? "Invitado";
+console.log(nombreUsuario); // "Invitado"
 
 // Encadenamiento opcional ?. (no lanza error si algo es null/undefined)
 const longitud = usuario?.length;
 console.log(longitud); // undefined (no lanza error)
-
-

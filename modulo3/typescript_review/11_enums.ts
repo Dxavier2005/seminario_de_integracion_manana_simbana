@@ -26,5 +26,3 @@ enum Rol {
 
 const miRol: Rol = Rol.Editor;
 console.log(miRol); // "EDITOR"
-
-
